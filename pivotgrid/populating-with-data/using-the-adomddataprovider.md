@@ -74,6 +74,15 @@ provider.ConnectionSettings = settings
 
 {{endregion}}
 
+## Utilizing controlled access with Perspectives
+
+>note When controlled access is needed, you can use **Perspectives** to fulfill such requirements. Simply replace your Cube name with Perspective name like shown below
+````C#
+settings.Cube = "Adventure Works"; // provide full access to Cube
+ settings.Cube = "YourPerspectiveName" ; // provide controlled access to cube
+````
+>
+
 ## Defining Group Descriptions
 
 >note When initializing the **AdomdDataProvider** in the code behind it is a good idea to wrap all modifications in **BeginInit/EndInit** section. This will cause only one refresh of the data provider and it will be when the EndInit is called. If you are applying only modifications (more than one) on already initialized **AdomdDataProvider** you should use the **DeferRefresh** method which will cause delay of the Refresh and this way all your changes will be applied simultaneously.
